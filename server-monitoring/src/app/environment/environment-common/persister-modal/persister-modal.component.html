@@ -1,7 +1,11 @@
 <div class="main">
     <div class="upper">
+        
         <div class="upper-left"><i class="oci oci-check font_20px" style="color:#DC6803;"></i></div>
-        <div class="upper-right word-wrap"> {{msg}}</div>
+        <div class="upper-right word-wrap"> 
+            <div style="font-weight:500;font-size:20px;color:#000;padding-bottom:10px;">Confirm</div>
+            <div>{{msg}}</div>
+        </div>
     </div>
     <div class="lower">
         <button (click)="closeModal('Yes')" id="yes-btn">

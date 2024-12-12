@@ -121,7 +121,7 @@ selectViewOrEdit(option: string): void {
       .subscribe({
 
         next: (result: any) => {
-          this.showSharedInput = true
+          // this.showSharedInput = true
           // this.Show_Project_Access = true
            this.users = result;
          
