@@ -1,12 +1,13 @@
 <div class="main">
     <div class="upper">
-        {{msg}}
+        <div class="upper-left"><i class="oci oci-check font_20px" style="color:#DC6803;"></i></div>
+        <div class="upper-right word-wrap"> {{msg}}</div>
     </div>
     <div class="lower">
-        <button (click)="closeModal('Yes')">
+        <button (click)="closeModal('Yes')" id="yes-btn">
             Yes
         </button>
-        <button (click)="closeModal('No')">
+        <button (click)="closeModal('No')" id="btn">
             No
         </button>
     </div>

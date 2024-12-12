@@ -1,0 +1,53 @@
+
+.main{
+    border-color: rgba(0, 0, 0, .08);
+    color: #424242;
+    background-color: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .06);
+    padding: 1.5rem;
+    border-radius: 8px;
+    height:200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main .upper{
+    flex: 1;
+    display : flex;
+}
+.main .upper .upper-left{
+    padding-top:10px;
+}
+
+.main .upper .upper-right{
+    flex: 1;
+    padding-left:10px;
+    padding-top:10px;
+}
+.main .lower {
+    display: flex;
+    justify-content: flex-end;
+    gap:10px;    
+}
+
+.main .lower button{
+    font-weight: 500; 
+    text-transform: capitalize;
+    border-radius: 8px;
+    width: 70px; 
+    height:40px;
+    padding: 2px; 
+}
+
+.main .lower #btn{
+    border: 0.5px solid #D0D5DD;
+    background-color: #fff;
+    color:#344054;
+}
+
+.main .lower #yes-btn{
+    border: 0.5px solid #1C7C92;
+    background-color: #1C7C92;
+    color:#fff;
+}

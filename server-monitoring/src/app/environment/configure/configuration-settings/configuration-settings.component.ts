@@ -28,7 +28,7 @@ export class ConfigurationSettingsComponent {
     
   ) { }
   sureClose(){
-    this.service_notification.showPersister("Are you sure you want close?")
+    this.service_notification.showPersister("Are you sure you want to close?")
     this.service_data.modalSubInstance.result.then((result) => {
     }, (response) => {
       if(response == 'Yes'){
@@ -445,7 +445,7 @@ export class ConfigurationSettingsComponent {
   createView() {
     
 
-    window.loadingStart("#div-datasource-slection", "Please wait");
+    window.loadingStart("#modal-view-bilder", "Please wait");
 
     let form_url = environment.BASE_OBIQ_SERVER_URL + "OpkeyObiqServerApi/OpkeyTraceIAAnalyticsApi/TelemetryViewController/createView";
 
@@ -454,7 +454,7 @@ export class ConfigurationSettingsComponent {
     this.app_service.make_post_server_call(form_url, form_data)
       .subscribe({
         next: (result: any) => {
-          window.loadingStop("#div-datasource-slection");
+          window.loadingStop("#modal-view-bilder");
           this.service_data.is_env_configure = true;
           this.close_model();   // calling GetAllViewds after View Creation
           this.service_notification.notifier(NotificationType.success, 'View Created');
