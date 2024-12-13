@@ -1,59 +1,163 @@
 
 <div class="main">
-    <div class="row mx-0">
-        <div class="col-sm-4 margin-bottom-2 pe-3 ps-0">
-            <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Error',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
-        </div>
-        <div class="col-sm-4 margin-bottom-2 px-3">
-            <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Warning',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
-        </div>
-        <div class="col-sm-4 margin-bottom-2 ps-3 pe-0">
-            <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Success',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
-        </div>
-        <div class="col-sm-3 margin-bottom-2 ps-0 pe-3">
-            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'Redis CPU Usage',data:'1.62%',view:view,widgetType:'TELEMETRY_REDIS_CPU_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
-        </div>
-        <div class="col-sm-3 margin-bottom-2 px-3">
-            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'Redis RAM Usage',data:'1.62%',view:view,widgetType:'TELEMETRY_REDIS_MEMORY_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
-        </div>
-       
-        <div class="col-sm-3 margin-bottom-2 px-3">
-            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'VM CPU Usage',data:'1.29%',view:view,widgetType:'TELEMETRY_VM_CPU_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
-        </div>
-        <div class="col-sm-3 margin-bottom-2 pe-0 ps-3">
-            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'VM RAM Usage',data:'1.29%',view:view,widgetType:'TELEMETRY_VM_MEMORY_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
-        </div>
-    </div>
 
-    <div class="row mx-0">
-    @for(progressBarItem of progressBarArray; track $index){
-      
-            <div class="col-sm-6 margin-bottom-2 overview-panel-padiing">
-                <div class="overview-panel widget-section p-3">
-                    <div class="panel-header d-flex-between mb-3">
-                        <h6 class="mb-0">{{ progressBarItem?.heading }}</h6>
-                     
-                        <a href="your-link-here" class="view-full-journey" style="text-decoration: none; color: #1C7C92;">
-                            {{ progressBarItem?.widgetType == 'USER_GUIDE_LIST_PER_PROCESS_WIDGET' ? 'Filter' : 'View full Journey' }}
-                        </a>
-                        
-                    
-                    </div>
-                    <app-environment-manager-widgets-progress-bars [widgetData]="progressBarItem" [view]="view"></app-environment-manager-widgets-progress-bars>
+    @if (notEditable) {
+        
+            <div class="row mx-0">
+                <div class="col-sm-4 margin-bottom-2 pe-3 ps-0">
+                    <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Error',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
+                </div>
+                <div class="col-sm-4 margin-bottom-2 px-3">
+                    <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Warning',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
+                </div>
+                <div class="col-sm-4 margin-bottom-2 ps-3 pe-0">
+                    <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Success',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
+                </div>
+                <div class="col-sm-3 margin-bottom-2 ps-0 pe-3">
+                    <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'Redis CPU Usage',data:'1.62%',view:view,widgetType:'TELEMETRY_REDIS_CPU_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                </div>
+                <div class="col-sm-3 margin-bottom-2 px-3">
+                    <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'Redis RAM Usage',data:'1.62%',view:view,widgetType:'TELEMETRY_REDIS_MEMORY_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                </div>
+               
+                <div class="col-sm-3 margin-bottom-2 px-3">
+                    <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'VM CPU Usage',data:'1.29%',view:view,widgetType:'TELEMETRY_VM_CPU_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                </div>
+                <div class="col-sm-3 margin-bottom-2 pe-0 ps-3">
+                    <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'VM RAM Usage',data:'1.29%',view:view,widgetType:'TELEMETRY_VM_MEMORY_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
                 </div>
             </div>
-       
+        
+            <div class="row mx-0">
+            @for(progressBarItem of progressBarArray; track $index){
+              
+                    <div class="col-sm-6 margin-bottom-2 overview-panel-padiing">
+                        <div class="overview-panel widget-section p-3">
+                            <div class="panel-header d-flex-between mb-3">
+                                <h6 class="mb-0">{{ progressBarItem?.heading }}</h6>
+                             
+                                <a href="your-link-here" class="view-full-journey" style="text-decoration: none; color: #1C7C92;">
+                                    {{ progressBarItem?.widgetType == 'USER_GUIDE_LIST_PER_PROCESS_WIDGET' ? 'Filter' : 'View full Journey' }}
+                                </a>
+                                
+                            
+                            </div>
+                            <app-environment-manager-widgets-progress-bars [widgetData]="progressBarItem" [view]="view"></app-environment-manager-widgets-progress-bars>
+                        </div>
+                    </div>
+               
+               
+            }
+            </div>
+        
+            <div class="widget-section">
+                <h6 class="font-bold mb-0 p-2 pt-3">
+                    Weekly Log Trends
+                </h6>
+                <app-enviornment-manager-time-explorer-graph [view]="view"></app-enviornment-manager-time-explorer-graph>
+            </div>
+            <!-- <div class="row mx-0">
+                <app-environment-manager-widgets-health-bars></app-environment-manager-widgets-health-bars>
+            </div> -->
        
     }
-    </div>
+    @else {
+        <div style="height: calc(100vh - 7rem) !important;" class="scrollable">
 
-    <div class="widget-section">
-        <h6 class="font-bold mb-0 p-2 pt-3">
-            Weekly Log Trends
-        </h6>
-        <app-enviornment-manager-time-explorer-graph [view]="view"></app-enviornment-manager-time-explorer-graph>
-    </div>
-    <!-- <div class="row mx-0">
-        <app-environment-manager-widgets-health-bars></app-environment-manager-widgets-health-bars>
-    </div> -->
+            <gridster [options]="options"  >
+                @for (item of dashboard; track item;let idx = $index;) {
+        
+                    <gridster-item [item]="item" style="border: 1px solid;">
+                        
+                        <ng-container *ngIf="item.widId == 'total_errors_Error'">
+                            <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Error',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId == 'total_errors_Warning'">
+                            <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Warning',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId == 'total_errors_Success'">
+                            <app-environment-manager-widgets-total-errors-area-widget  class="total-error-chart" [child_data]="{typeEnum: 'Success',view:view}"></app-environment-manager-widgets-total-errors-area-widget>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId == 'TELEMETRY_REDIS_CPU_USAGE_WIDGET'">
+                            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'Redis CPU Usage',data:'1.62%',view:view,widgetType:'TELEMETRY_REDIS_CPU_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId == 'TELEMETRY_REDIS_MEMORY_USAGE_WIDGET'">
+                            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'Redis RAM Usage',data:'1.62%',view:view,widgetType:'TELEMETRY_REDIS_MEMORY_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                        </ng-container>
+    
+                        <ng-container *ngIf="item.widId == 'TELEMETRY_VM_CPU_USAGE_WIDGET'">
+                            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'VM CPU Usage',data:'1.29%',view:view,widgetType:'TELEMETRY_VM_CPU_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId == 'TELEMETRY_VM_MEMORY_USAGE_WIDGET'">
+                            <app-environment-manager-widgets-gauge-meter [child_data]="{title: 'VM RAM Usage',data:'1.29%',view:view,widgetType:'TELEMETRY_VM_MEMORY_USAGE_WIDGET'}"></app-environment-manager-widgets-gauge-meter>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId=='USER_GUIDE_LIST_PER_PROCESS_WIDGET'">
+                            <div class="overview-panel widget-section p-3">
+                                <div class="panel-header d-flex-between mb-3">
+                                    <h6 class="mb-0">{{ progressBarArray[0]?.heading }}</h6>
+                                 
+                                    <a href="your-link-here" class="view-full-journey" style="text-decoration: none; color: #1C7C92;">
+                                        {{ progressBarArray[0]?.widgetType == 'USER_GUIDE_LIST_PER_PROCESS_WIDGET' ? 'Filter' : 'View full Journey' }}
+                                    </a>
+                                    
+                                
+                                </div>
+                                <app-environment-manager-widgets-progress-bars [widgetData]="progressBarArray[0]" [view]="view"></app-environment-manager-widgets-progress-bars>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId=='USER_JOURNEY_TOP_FAST_WIDGET'">
+                            <div class="overview-panel widget-section p-3">
+                                <div class="panel-header d-flex-between mb-3">
+                                    <h6 class="mb-0">{{ progressBarArray[1]?.heading }}</h6>
+                                 
+                                    <a href="your-link-here" class="view-full-journey" style="text-decoration: none; color: #1C7C92;">
+                                        {{ progressBarArray[1]?.widgetType == 'USER_GUIDE_LIST_PER_PROCESS_WIDGET' ? 'Filter' : 'View full Journey' }}
+                                    </a>
+                                    
+                                
+                                </div>
+                                <app-environment-manager-widgets-progress-bars [widgetData]="progressBarArray[1]" [view]="view"></app-environment-manager-widgets-progress-bars>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId=='USER_JOURNEY_TOP_SLOW_WIDGET'">
+                            <div class="overview-panel widget-section p-3">
+                                <div class="panel-header d-flex-between mb-3">
+                                    <h6 class="mb-0">{{ progressBarArray[2]?.heading }}</h6>
+                                 
+                                    <a href="your-link-here" class="view-full-journey" style="text-decoration: none; color: #1C7C92;">
+                                        {{ progressBarArray[2]?.widgetType == 'USER_GUIDE_LIST_PER_PROCESS_WIDGET' ? 'Filter' : 'View full Journey' }}
+                                    </a>
+                                    
+                                
+                                </div>
+                                <app-environment-manager-widgets-progress-bars [widgetData]="progressBarArray[2]" [view]="view"></app-environment-manager-widgets-progress-bars>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId=='USER_JOURNEY_MOST_COMMON_WIDGET'">
+                            <div class="overview-panel widget-section p-3">
+                                <div class="panel-header d-flex-between mb-3">
+                                    <h6 class="mb-0">{{ progressBarArray[3]?.heading }}</h6>
+                                 
+                                    <a href="your-link-here" class="view-full-journey" style="text-decoration: none; color: #1C7C92;">
+                                        {{ progressBarArray[3]?.widgetType == 'USER_GUIDE_LIST_PER_PROCESS_WIDGET' ? 'Filter' : 'View full Journey' }}
+                                    </a>
+                                    
+                                
+                                </div>
+                                <app-environment-manager-widgets-progress-bars [widgetData]="progressBarArray[3]" [view]="view"></app-environment-manager-widgets-progress-bars>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="item.widId=='Weekly_Log_Trends'">
+                            <div class="widget-section">
+                                <h6 class="font-bold mb-0 p-2 pt-3">
+                                    Weekly Log Trends
+                                </h6>
+                                <app-enviornment-manager-time-explorer-graph [view]="view"></app-enviornment-manager-time-explorer-graph>
+                            </div>
+                        </ng-container>
+                    </gridster-item>
+                }
+              </gridster>
+        </div>
+    }
 </div>

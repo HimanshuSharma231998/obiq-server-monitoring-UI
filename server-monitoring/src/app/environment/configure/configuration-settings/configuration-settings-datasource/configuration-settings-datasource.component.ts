@@ -216,9 +216,12 @@ export class ConfigurationSettingsDatasourceComponent implements OnInit {
  
 
   onInputChange(event: any) {
- 
-    console.log(event.target.value);
+    
+    
     this.modal_name = event.target.value;
+    if(this.modal_name!="")this.obj_error.dispaly_viewName=false;
+    else this.obj_error.dispaly_viewName=true;
+   
     let form_url = environment.BASE_OBIQ_SERVER_URL + "OpkeyObiqServerApi/OpkeyTraceIAAnalyticsApi/TelemetryViewController/checkViewNameExists";
 
     let form_data ={
@@ -233,7 +236,7 @@ export class ConfigurationSettingsDatasourceComponent implements OnInit {
           window.loadingStop("#navigator-left");
 
         this.obj_error.isDuplicateName=result
-          console.log("view=============",result);
+         
           
 
         },

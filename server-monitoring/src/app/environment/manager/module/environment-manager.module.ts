@@ -37,6 +37,7 @@ import { SelectedTraceInnerComponent } from '../main-right/log-tab/log-tab-detai
 import { LabelModule } from "@progress/kendo-angular-label";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { GridsterComponent, GridsterItemComponent } from 'angular-gridster2';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,10 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     LayoutModule,
     LabelModule,
     DateInputsModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    FormsModule,
+    GridsterComponent,
+    GridsterItemComponent
   
   ],
   providers: [DatePipe],

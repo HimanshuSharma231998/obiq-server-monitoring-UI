@@ -26,8 +26,10 @@ export class EnvironmentManagerMainRightComponent implements OnInit, OnDestroy, 
   ngOnDestroy(): void {
 
   }
+  
   ngOnInit(): void {
     this.app_service.dataReceiver().subscribe(data => {
+     
       if (data !== null) {
         if(data.callsource == 'timeExplorerChart'){
 
@@ -38,9 +40,19 @@ export class EnvironmentManagerMainRightComponent implements OnInit, OnDestroy, 
           this.cdr.detectChanges();
         }
       }
+      
     });
   }
   ngAfterViewInit(): void {
+   this.calculateCurrentDate();
+  }
+
+
+  calculateCurrentDate(){
+   
+    this.fromDatevalue.setDate(this.fromDatevalue.getDate() - 1);
+    this.receivedTimeRange  = this.fromDatevalue.toLocaleString('en-us',{day : 'numeric' ,month:'short',hour: 'numeric',minute: 'numeric', hour12: true}) + " to "+ this.toDateValue.toLocaleString('en-us',{day : 'numeric' ,month:'short',hour: 'numeric',minute: 'numeric',  hour12: true}) ;
+
 
   }
   timezoneDatasource = []
@@ -244,4 +256,8 @@ export class EnvironmentManagerMainRightComponent implements OnInit, OnDestroy, 
 
 
   }
+  toggleEdit(){
+    this.notEditable = !this.notEditable
+  }
+  notEditable = true
 }

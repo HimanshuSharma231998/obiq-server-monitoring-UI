@@ -23,6 +23,13 @@
                 </div> -->
 
                 <div class="filter-content">
+                    <div class="EditToggle">
+    <button (click)="toggleEdit()" disabled>Edit</button>
+                        
+                    </div>
+
+                </div>
+                <div class="filter-content">
                     <div class="search_panel searchToggle">
     
                         <span class="search_icon" ngbTooltip="Search" container="body"><i class="oci oci-search"></i></span>
@@ -88,7 +95,6 @@
                             </button>
                             <span class="time-text-color px-2">
                                 <i class="oci oci-clock font-14px pe-2"></i>
-                                <!-- from <span class="font-bold text-theme">Sep 13, 02:32 pm</span> to <span class="font-bold text-theme">Sep 13, 03:04 pm</span> (GMT+5:30) -->
                                 from <span class="font-bold text-theme">{{receivedTimeRange}}</span> (GMT+5:30)
                             </span>
                             <button type="button" class="btn btn-default">
@@ -301,7 +307,7 @@
     
                 @if (selectedTab.enumType == 'OVERVIEW_TAB') { 
                     <div class="overview">
-                        <app-environment-manager-main-right-overview-tab [view]="selectedView"></app-environment-manager-main-right-overview-tab>
+                        <app-environment-manager-main-right-overview-tab [view]="selectedView" [notEditable]="notEditable"></app-environment-manager-main-right-overview-tab>
                     </div>
                 }
                 @else if (selectedTab.enumType == 'LOG_TAB') {

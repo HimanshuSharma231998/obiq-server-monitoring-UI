@@ -1,6 +1,6 @@
 
  function loadingStart(el, msg) {
-      debugger;
+    //   debugger;
 
     var element;
 

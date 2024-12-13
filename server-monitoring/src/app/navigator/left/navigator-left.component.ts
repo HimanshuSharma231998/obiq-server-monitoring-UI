@@ -237,16 +237,24 @@ export class NavigatorLeftComponent implements OnInit {
   }
 
   isopenSettings: boolean = false
-
+  selectedView2: any = {}
   openSettings() {
 
     this.isopenSettings = true
+    this.selectedView2 = this.totalViews[0];
+    this.selectedViewSettings = this.selectedView2;
+    this.dataChanged.viewSelected = this.selectedView2
+    // this.set_Selected_VIew(this.selectedView)
+
     this.dataChanged.settingsPanel = { isOpen: this.isopenSettings, selectedViewSettings: this.selectedViewSettings }
     this.onLeftPanelDataChange.emit(this.dataChanged)
 
   }
   backToMenu() {
     this.isopenSettings = false
+    // this.selectedView = this.totalViews[this.totalViews.length-1];
+    this.selectedViewSettings = this.selectedView;
+    this.dataChanged.viewSelected = this.selectedView
     this.dataChanged.settingsPanel = { isOpen: this.isopenSettings, selectedViewSettings: this.selectedViewSettings }
     this.onLeftPanelDataChange.emit(this.dataChanged)
 
