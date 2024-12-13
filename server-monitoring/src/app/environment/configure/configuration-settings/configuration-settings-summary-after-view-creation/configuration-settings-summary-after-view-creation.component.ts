@@ -141,7 +141,7 @@ export class ConfigurationSettingsSummaryAfterViewCreationComponent implements O
   }
   onAccessTypeChange(selectedOption: string) {
     
-    this.selectedAccessType = selectedOption;
+   if(selectedOption) this.selectedAccessType = selectedOption;
     if (this.selectedAccessType == "SHARED") {
       this.getAllProjects()
     }
@@ -191,7 +191,7 @@ export class ConfigurationSettingsSummaryAfterViewCreationComponent implements O
 
         next: (result: any) => {
           this.app_service.dataTransmitter("viewCreated");
-          this.selectedAccessType = form_data.accessType;
+          this.selectedAccessType = form_data?.accessType;
         },
         error: (error: any) => {
 

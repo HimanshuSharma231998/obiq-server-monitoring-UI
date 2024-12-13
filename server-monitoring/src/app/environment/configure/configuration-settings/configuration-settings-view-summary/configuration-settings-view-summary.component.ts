@@ -40,7 +40,7 @@ export class ConfigurationSettingsViewSummaryComponent implements OnInit {
         this.receivedAccessType = data;
         console.log(this.receivedAccessType, "recived==========")
         if(this.receivedAccessType != "viewCreated"){
-          this.selectedAccessType = this.receivedAccessType.AccessType
+          this.selectedAccessType = this.receivedAccessType?.AccessType
         }
         this.obj_configuration_setting.AccessType = this.receivedAccessType.AccessType;
         if (this.obj_configuration_setting.AccessType == "SHARED") {
@@ -114,7 +114,7 @@ export class ConfigurationSettingsViewSummaryComponent implements OnInit {
 
   onAccessTypeChange(selectedOption: string) {
     
-    this.selectedAccessType = selectedOption;
+   if(selectedOption) this.selectedAccessType = selectedOption;
     if (this.selectedAccessType == "SHARED") {
       this.getAllProjects()
     }
