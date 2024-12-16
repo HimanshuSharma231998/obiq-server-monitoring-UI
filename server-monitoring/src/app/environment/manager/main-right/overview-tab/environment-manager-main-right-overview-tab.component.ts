@@ -142,12 +142,15 @@ export class EnvironmentManagerMainRightOverviewTabComponent implements OnInit,O
     ];
   }
   ngOnInit(): void {
-    
+    console.log(this.view,"this is view ==============================");
+    console.log(this.selectedAnalyticsType,"this is selected Analytics type ===================")
   }
   ngOnDestroy(): void {
     
   }
   @Input() view:any
+  @Input() selectedAnalyticsType:any
+
   applicationTotalData:any = [{
     applicationName : 'Oracle Fusion',
     cpu:'02.68',

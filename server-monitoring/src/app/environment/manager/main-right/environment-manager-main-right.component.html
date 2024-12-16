@@ -304,31 +304,62 @@
             </div>
     
             <div class="tab_view_content h-100 scrollable px-4 pb-2">
-    
-                @if (selectedTab.enumType == 'OVERVIEW_TAB') { 
-                    <div class="overview">
-                        <app-environment-manager-main-right-overview-tab [view]="selectedView" [notEditable]="notEditable"></app-environment-manager-main-right-overview-tab>
-                    </div>
+                @if (isSelectedAnalyticsTypeEmpty) {
+                    @if (selectedTab.enumType === 'OVERVIEW_TAB') {
+                        <div class="overview">
+                            <app-environment-manager-main-right-overview-tab
+                                [view]="selectedView"
+                                [notEditable]="notEditable">
+                            </app-environment-manager-main-right-overview-tab>
+                        </div>
+                    }
+                    @else if (selectedTab.enumType === 'LOG_TAB') {
+                        <div class="log">
+                            <app-environment-manager-main-right-log-tab
+                                [analyticsType]="selectedAnalyticsType"
+                                [view]="selectedView">
+                            </app-environment-manager-main-right-log-tab>
+                        </div>
+                    }
+                    @else if (selectedTab.enumType === 'TIME_EXPLORER_TAB') {
+                        <div class="timeexplorer">
+                            Time explorer component here
+                        </div>
+                    }
+                    @else if (selectedTab.enumType === 'telemetry') {
+                        <div class="telemetry">
+                            Telemetry component here
+                        </div>
+                    }
                 }
-                @else if (selectedTab.enumType == 'LOG_TAB') {
-                    <div class="log">
-                        <app-environment-manager-main-right-log-tab [analyticsType]="selectedAnalyticsType" 
-                        [view]="selectedView" ></app-environment-manager-main-right-log-tab>
-                    </div>
-            
+                @else {
+                    @if(selectedAnalyticsType.type == "USER_BEHAVIOUR_ANALYTICS_DATASOURCE"){
+                        <div class="telemetry">
+                            <!-- <app-environment-manager-main-right-DataSource->
+
+                            </app-environment-manager-main-right-DataSource-UserBehaviour> -->
+                        </div>
+                    }
+                    @else if(selectedAnalyticsType.type == "TEST_AUTOMATION_ANALYTICS_DATASOURCE"){
+                        <div class="telemetry">
+                            TEST_AUTOMATION_ANALYTICS Selected
+                        </div>
+                    }
+                    @else if(selectedAnalyticsType.type == "ERP_ANALYTICS_DATASOURCE"){
+                        <div class="telemetry">
+                            <!-- <app-environment-manager-main-right-DataSource-ErpAnalytics>
+
+                            </app-environment-manager-main-right-DataSource-ErpAnalytics> -->
+                        </div>
+                    }
+                    @else if(selectedAnalyticsType.type == "SYSTEM_DIAGNOSTICS_ANALYTICS_DATASOURCE"){
+                        <div class="telemetry">
+                            SYSTEM_DIAGNOSTICS_ANALYTICS Selected
+                        </div>
+                    }
+                 
                 }
-                @else if (selectedTab.enumType == 'TIME_EXPLORER_TAB') {
-            
-                    <div class="timeexplorer">
-                        Time explorer component here
-                    </div>
-                }
-                @else if (selectedTab.enumType == 'telemetry') {
-            
-                    <div class="telemetry">
-                        Telemetry component here
-                    </div>
-                }
+                
     
             </div>
 

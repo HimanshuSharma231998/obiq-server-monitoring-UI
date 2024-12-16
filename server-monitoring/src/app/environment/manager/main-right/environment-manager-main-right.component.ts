@@ -89,7 +89,9 @@ export class EnvironmentManagerMainRightComponent implements OnInit, OnDestroy, 
     this.bindData()
 
   }
-
+  get isSelectedAnalyticsTypeEmpty(): boolean {
+    return Object.keys(this.selectedAnalyticsType).length === 0;
+  }
   onSelctTime(timeItem){
     this.selectedTime = timeItem?.name;
     if(this.selectedTime == "setCustom"){
@@ -121,6 +123,7 @@ export class EnvironmentManagerMainRightComponent implements OnInit, OnDestroy, 
   }
 
   get_Tab_Control_List(AnalysticsType) {
+    debugger;
     window.loadingStart("#Env_manager_main_right", "Please wait");
     let form_url = environment.BASE_OBIQ_SERVER_URL + "OpkeyObiqServerApi/OpkeyTraceIAAnalyticsApi/ObiqAgentServerTraceController/getDataSourceTabControlList";
 
@@ -157,6 +160,7 @@ export class EnvironmentManagerMainRightComponent implements OnInit, OnDestroy, 
    
     if (Object.keys(this.selectedAnalyticsType).length != 0) {
       // if(this.selectedAnalyticsType.type == 'ERP_ANALYTICS_DATASOURCE'){
+      console.log(this.selectedAnalyticsType,"this is Analytics Type object");
       this.get_Tab_Control_List(this.selectedAnalyticsType)
 
       // }
